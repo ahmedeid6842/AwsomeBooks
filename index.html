@@ -5,26 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aswsome Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Awesome Books</title>
 </head>
 
 <body>
-    <h1>Awsome Books</h1>
-    <section class="books">
+    <section class="book-list">
+        <h1>All Awesome books</h1>
+        <div class="gray-line"></div>
+        <div class="books"></div>
     </section>
-    <form class="new_book">
-        <div>
-            <input type="text" id="book-title" name="book_title" placeholder="Title" required>
-        </div>
-        <br>
-        <div>
-            <input type="text" id="book-author" name="author_name" placeholder="Author" required>
-        </div>
-        <br>
-        <div>
-            <button type="submit" id="add-book-btn">Add</button>
-        </div>
-    </form>
+    <section class="add-section">
+        <h3>Add a new book</h3>
+        <div class="gray-line"></div>
+        <form class="new_book">
+            <div>
+                <input type="text" id="book-title" name="book_title" placeholder="Title" required>
+            </div>
+            <div>
+                <input type="text" id="book-author" name="author_name" placeholder="Author" required>
+            </div>
+            <div>
+                <button type="submit" id="add-book-btn">Add</button>
+            </div>
+        </form>
+    </section>
 </body>
 <script src="./js/index.js"></script>
 

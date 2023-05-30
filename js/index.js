@@ -53,6 +53,21 @@ class BookList {
     }
   }
 
+  loadSavedBooks() {
+    this.books.forEach((book) => {
+      this.renderBook(book);
+    });
+  }
+  handleFormSubmit(event) {
+    event.preventDefault();
+    const bookAuthor = this.bookAuthorInput.value;
+    const bookTitle = this.bookTitleInput.value;
+    const book = new Book(bookTitle, bookAuthor);
+    this.addBook(book);
+    this.renderBook(book);
+    this.bookForm.reset();
+  }
+
 }
 
 const bookList = new BookList();
