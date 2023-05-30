@@ -3,6 +3,19 @@ const bookForm = document.querySelector('.new_book');
 const bookAuthorInput = document.querySelector('#book-author');
 const bookTitleInput = document.querySelector('#book-title');
 
+function removeBookFromLocalStorage(title) {
+  let books = JSON.parse(localStorage.getItem('books')) || [];
+  books = books.filter((book) => book.title !== title);
+  localStorage.setItem('books', JSON.stringify(books));
+}
+
+function addBookToLocalStorage(bookTitle, bookAuthor) {
+  const books = JSON.parse(localStorage.getItem('books')) || [];
+  books.push({ title: bookTitle, author: bookAuthor });
+
+  localStorage.setItem('books', JSON.stringify(books));
+}
+
 function createBook(title, author) {
   const bookCard = `
         <div class="book_card">
@@ -27,9 +40,7 @@ function createBook(title, author) {
         bookCard.remove();
 
         // Remove the book from the local storage
-        let books = JSON.parse(localStorage.getItem('books')) || [];
-        books = books.filter((book) => book.title !== bookCard.querySelector('.book_title').innerText);
-        localStorage.setItem('books', JSON.stringify(books));
+        removeBookFromLocalStorage(bookCard.querySelector('.book_title').innerText);
       }
     });
   }
@@ -49,10 +60,7 @@ bookForm.addEventListener('submit', (event) => {
   const bookAuthor = bookAuthorInput.value;
   const bookTitle = bookTitleInput.value;
 
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  books.push({ title: bookTitle, author: bookAuthor });
-
-  localStorage.setItem('books', JSON.stringify(books));
+  addBookToLocalStorage(bookAuthor, bookTitle);
 
   createBook(bookTitle, bookAuthor);
 
