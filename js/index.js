@@ -1,10 +1,3 @@
-class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
-}
-
 class BookList {
   constructor() {
     this.books = JSON.parse(localStorage.getItem('books')) || [];
@@ -46,7 +39,7 @@ class BookList {
         const bookCard = event.target.parentElement;
         if (bookCard) {
           bookCard.remove();
-          this.removeBook(bookCard.querySelector('.book_title').innerText.split("by")[0].trim());
+          this.removeBook(bookCard.querySelector('.book_title').innerText.split('by')[0].trim());
         }
       });
     }
@@ -57,11 +50,12 @@ class BookList {
       this.renderBook(book);
     });
   }
+
   handleFormSubmit(event) {
     event.preventDefault();
     const bookAuthor = this.bookAuthorInput.value;
     const bookTitle = this.bookTitleInput.value;
-    const book = new Book(bookTitle, bookAuthor);
+    const book = { title: bookTitle, author: bookAuthor };
     this.addBook(book);
     this.renderBook(book);
     this.bookForm.reset();
@@ -69,4 +63,4 @@ class BookList {
 
 }
 
-const bookList = new BookList();
+new BookList();
