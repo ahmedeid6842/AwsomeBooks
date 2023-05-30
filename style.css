@@ -1,4 +1,3 @@
-/* Global Styles */
 
 :root {
   --title: 'COCOGOOSE', sans-serif;
@@ -20,9 +19,11 @@ html {
   padding: 0;
   border: 0;
   box-sizing: inherit;
-
+  
   /* outline: 1px solid red !important; */
 }
+
+
 
 /* Text Styles */
 
@@ -136,4 +137,56 @@ form.new_book {
 
 form.new_book button {
   background-color: #36b37f;
+}
+
+header,
+footer {
+  display: flex;
+  width: 90vw;
+  height: 9vh;
+  border: 1px solid #333;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 4rem;
+}
+
+.nav-item {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.nav-item:not(:last-child) {
+  border-right: 2px solid #454545;
+  padding-right: 2rem;
+}
+
+.nav-item:hover {
+  text-shadow: 0.1rem 0.5rem 2rem #43A6C6;
+  color: #1E90FF	;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-section p {
+  font-size: 3rem;
+  margin: 3rem;
+}
+
+.contact-section li {
+  font-size: 2rem;
+}
+
+.hidden {
+  display: none;
 }
