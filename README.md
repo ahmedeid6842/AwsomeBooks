@@ -1,29 +1,6 @@
 <a name="readme-top"></a>
 
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
 
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
--->
 
 <div align="center">
 
@@ -52,7 +29,6 @@ After you're finished please remove all the comments and instructions!
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
@@ -68,22 +44,10 @@ After you're finished please remove all the comments and instructions!
 
 
 <details>
-  <summary>HTML</summary>
+  <summary>Client</summary>
   <ul>
     <li>HTML</li>
-  </ul>
-</details>
-
-<details>
-  <summary>CSS</summary>
-  <ul>
     <li>CSS</li>
-  </ul>
-</details>
-
-<details>
-  <summary>JavaScript</summary>
-  <ul>
     <li>JavaScript</li>
   </ul>
 </details>
@@ -93,12 +57,9 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 
-- Creating branches on repositories.
-- Use of linter on HTML&CSS&JavaScript project.
-- Correct use of GitHub flow.
-- Follow Microverse's list of best practices for JavaScript projects.
-- Implement a basic UI with plain HTML for a basic webpage.
-
+- Adding & Remove Books Dynimcally
+- Book Data are stored in the local storage
+- load saved books in local storage when re-open the website
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
@@ -106,7 +67,7 @@ After you're finished please remove all the comments and instructions!
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- Here is the [live-demo](https://oovillagran.github.io/AwesomeBooks/)
+- Here is the [live-demo](https://ahmedeid6842.github.io/AwsomeBooks/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,7 +119,7 @@ To run tests, execute the following command:
 
 ### Deployment
 
--Follow GitHub pages guideliness.
+- Follow GitHub pages guideliness.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -189,7 +150,7 @@ To run tests, execute the following command:
 
 - [ ] **Use of linter in HTML&CSS projects**
 - [ ] **Use README template file**
-- [ ] **Ask for a code review****
+- [ ] **Ask for a code review**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
