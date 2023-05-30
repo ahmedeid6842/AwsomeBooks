@@ -30,8 +30,7 @@ class BookList {
   createBookCard(book) {
     return `
       <div class="book_card">
-        <p class="book_title">${book.title}</p>
-        <p class="book_author">${book.author}</p>
+        <p class="book_title">${book.title} by <span class="book_author">${book.author}</span></p>
         <button class="remove_button">Remove</button>
         <hr>
       </div>

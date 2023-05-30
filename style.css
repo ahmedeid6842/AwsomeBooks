@@ -107,6 +107,7 @@ form.new_book button {
 
 .book_title {
   font-weight: bold;
+  width: 80%;
 }
 
 .book_author {
