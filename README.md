@@ -183,7 +183,7 @@ We would like to thank Microverse comunity, they do an excellent job.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](LICENSE.md) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 _NOTE: we recommend using the [MIT license]<a href="LICENSE.md">
 
