@@ -6,7 +6,6 @@ class BookList {
     this.bookAuthorInput = document.querySelector('#book-author');
     this.bookTitleInput = document.querySelector('#book-title');
 
-    this.loadSavedBooks();
     this.bookForm.addEventListener('submit', this.handleFormSubmit.bind(this));
   }
 
@@ -20,6 +19,7 @@ class BookList {
     localStorage.setItem('books', JSON.stringify(this.books));
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createBookCard(book) {
     return `
       <div class="book_card">
@@ -60,7 +60,7 @@ class BookList {
     this.renderBook(book);
     this.bookForm.reset();
   }
-
 }
 
-new BookList();
+const newBook = new BookList();
+newBook.loadSavedBooks();
