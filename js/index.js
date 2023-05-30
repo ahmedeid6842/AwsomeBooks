@@ -1,68 +1,66 @@
-const bookSection = document.querySelector('.books');
-const bookForm = document.querySelector('.new_book');
-const bookAuthorInput = document.querySelector('#book-author');
-const bookTitleInput = document.querySelector('#book-title');
+class BookList {
+  constructor() {
+    this.books = JSON.parse(localStorage.getItem('books')) || [];
+    this.bookSection = document.querySelector('.books');
+    this.bookForm = document.querySelector('.new_book');
+    this.bookAuthorInput = document.querySelector('#book-author');
+    this.bookTitleInput = document.querySelector('#book-title');
 
-function removeBookFromLocalStorage(title) {
-  let books = JSON.parse(localStorage.getItem('books')) || [];
-  books = books.filter((book) => book.title !== title);
-  localStorage.setItem('books', JSON.stringify(books));
-}
+    this.bookForm.addEventListener('submit', this.handleFormSubmit.bind(this));
+  }
 
-function addBookToLocalStorage(bookTitle, bookAuthor) {
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  books.push({ title: bookTitle, author: bookAuthor });
+  addBook(book) {
+    this.books.push(book);
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
 
-  localStorage.setItem('books', JSON.stringify(books));
-}
+  removeBook(title) {
+    this.books = this.books.filter((book) => book.title !== title);
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
 
-function createBook(title, author) {
-  const bookCard = `
-        <div class="book_card">
-            <p class="book_title">${title}</p>
-            <p class="book_author">${author}</p>
-            <button class="remove_button">Remove</button>
-            <hr>
-        </div>
+  // eslint-disable-next-line class-methods-use-this
+  createBookCard(book) {
+    return `
+      <div class="book_card">
+        <p class="book_title">${book.title} by <span class="book_author">${book.author}</span></p>
+        <button class="remove_button">Remove</button>
+        <hr>
+      </div>
     `;
+  }
 
-  bookSection.insertAdjacentHTML('afterbegin', bookCard);
-  // Add an event listener to the remove button element
-  const removeBookButton = bookSection.querySelector('.remove_button');
-  if (removeBookButton) {
-    removeBookButton.addEventListener('click', (event) => {
-      // Get the book card element
-      const bookCard = event.target.parentElement;
+  renderBook(book) {
+    const bookCard = this.createBookCard(book);
+    this.bookSection.insertAdjacentHTML('afterbegin', bookCard);
+    const removeBookButton = this.bookSection.querySelector('.remove_button');
+    if (removeBookButton) {
+      removeBookButton.addEventListener('click', (event) => {
+        const bookCard = event.target.parentElement;
+        if (bookCard) {
+          bookCard.remove();
+          this.removeBook(bookCard.querySelector('.book_title').innerText.split('by')[0].trim());
+        }
+      });
+    }
+  }
 
-      // Check if the book card exists before attempting to remove it
-      if (bookCard) {
-        // Remove the book card element from the DOM
-        bookCard.remove();
-
-        // Remove the book from the local storage
-        removeBookFromLocalStorage(bookCard.querySelector('.book_title').innerText);
-      }
+  loadSavedBooks() {
+    this.books.forEach((book) => {
+      this.renderBook(book);
     });
+  }
+
+  handleFormSubmit(event) {
+    event.preventDefault();
+    const bookAuthor = this.bookAuthorInput.value;
+    const bookTitle = this.bookTitleInput.value;
+    const book = { title: bookTitle, author: bookAuthor };
+    this.addBook(book);
+    this.renderBook(book);
+    this.bookForm.reset();
   }
 }
 
-function loadSavedBooks() {
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  books.forEach(({ title, author }) => {
-    createBook(title, author);
-  });
-}
-
-loadSavedBooks();
-
-bookForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const bookAuthor = bookAuthorInput.value;
-  const bookTitle = bookTitleInput.value;
-
-  addBookToLocalStorage(bookAuthor, bookTitle);
-
-  createBook(bookTitle, bookAuthor);
-
-  bookForm.reset();
-});
+const newBook = new BookList();
+newBook.loadSavedBooks();

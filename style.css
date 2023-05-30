@@ -1,4 +1,139 @@
-body {
+/* Global Styles */
+
+:root {
+  --title: 'COCOGOOSE', sans-serif;
+  --text: montserrat, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%;
+  font-family: var(--text);
+}
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  border: 0;
+  box-sizing: inherit;
+
+  /* outline: 1px solid red !important; */
+}
+
+/* Text Styles */
+
+h1,
+h3 {
+  font-family: var(--title);
+  font-size: 2.5rem;
+}
+
+p,
+button,
+input {
+  font-size: 1.6rem;
+  font-family: var(--text);
+}
+
+.gray-line {
+  height: 0.2rem;
+  width: 5%;
+  background-color: gray;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+}
+
+/* Layout Styles */
+
+main,
+.book-list,
+.add-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.book-list,
+.add-section {
+  width: 100%;
+  gap: 1rem;
+  padding: 2vh 2vw;
+}
+
+.books {
+  gap: 1rem;
+  width: 80%;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(165, 165, 165);
+}
+
+/* List and Form Styles */
+
+.book_card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.book_card:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+.book_card button {
+  background-color: lightcoral;
+}
+
+.book_card button,
+form.new_book button {
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.book_title {
+  font-weight: bold;
+  width: 80%;
+}
+
+.book_author {
+  font-weight: normal;
+}
+
+/* Form Styles */
+
+form.new_book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+#book-title,
+#book-author {
+  width: 30vw;
+  height: 3rem;
+  padding: 0.5rem;
+  border: 1px solid #d0d9d4;
+  border-radius: 0.5rem;
+}
+
+form.new_book button {
+  background-color: #36b37f;
 }
