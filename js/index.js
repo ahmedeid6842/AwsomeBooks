@@ -46,7 +46,7 @@ class BookList {
         const bookCard = event.target.parentElement;
         if (bookCard) {
           bookCard.remove();
-          this.removeBook(bookCard.querySelector('.book_title').innerText);
+          this.removeBook(bookCard.querySelector('.book_title').innerText.split("by")[0].trim());
         }
       });
     }
