@@ -19,11 +19,9 @@ html {
   padding: 0;
   border: 0;
   box-sizing: inherit;
-  
+
   /* outline: 1px solid red !important; */
 }
-
-
 
 /* Text Styles */
 
@@ -168,8 +166,8 @@ footer {
 }
 
 .nav-item:hover {
-  text-shadow: 0.1rem 0.5rem 2rem #43A6C6;
-  color: #1E90FF	;
+  text-shadow: 0.1rem 0.5rem 2rem #43a6c6;
+  color: #1e90ff;
 }
 
 .contact-section {
