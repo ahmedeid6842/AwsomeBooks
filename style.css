@@ -71,13 +71,9 @@ main {
 
 .books {
   gap: 1rem;
-  width: 80%;  
+  width: 80%;
   border-radius: 0.5rem;
   border: 1px solid rgb(165, 165, 165);
-}
-
-.book_card:nth-child(odd) {
-  background-color: #F7F7F7;
 }
 
 /* List and Form Styles */
@@ -92,6 +88,14 @@ main {
   border-radius: 0.5rem;
 }
 
+.book_card:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+.book_card button {
+  background-color: lightcoral;
+}
+
 .book_card button,
 form.new_book button {
   color: white;
@@ -99,10 +103,6 @@ form.new_book button {
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-}
-
-.book_card button {
-  background-color: lightcoral;
 }
 
 .book_title {
@@ -137,5 +137,3 @@ form.new_book {
 form.new_book button {
   background-color: #36b37f;
 }
-
-
