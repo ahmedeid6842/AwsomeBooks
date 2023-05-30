@@ -1,60 +1,58 @@
-const bookSection = document.querySelector('.books');
-const bookForm = document.querySelector('.new_book');
-const bookAuthorInput = document.querySelector('#book-author');
-const bookTitleInput = document.querySelector('#book-title');
-
-function createBook(title, author) {
-  const bookCard = `
-        <div class="book_card">
-            <p class="book_title">${title}</p>
-            <p class="book_author">${author}</p>
-            <button class="remove_button">Remove</button>
-            <hr>
-        </div>
-    `;
-
-  bookSection.insertAdjacentHTML('afterbegin', bookCard);
-  // Add an event listener to the remove button element
-  const removeBookButton = bookSection.querySelector('.remove_button');
-  if (removeBookButton) {
-    removeBookButton.addEventListener('click', (event) => {
-      // Get the book card element
-      const bookCard = event.target.parentElement;
-
-      // Check if the book card exists before attempting to remove it
-      if (bookCard) {
-        // Remove the book card element from the DOM
-        bookCard.remove();
-
-        // Remove the book from the local storage
-        let books = JSON.parse(localStorage.getItem('books')) || [];
-        books = books.filter((book) => book.title !== bookCard.querySelector('.book_title').innerText);
-        localStorage.setItem('books', JSON.stringify(books));
-      }
-    });
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
   }
 }
 
-function loadSavedBooks() {
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  books.forEach(({ title, author }) => {
-    createBook(title, author);
-  });
+class BookList {
+  constructor() {
+    this.books = JSON.parse(localStorage.getItem('books')) || [];
+    this.bookSection = document.querySelector('.books');
+    this.bookForm = document.querySelector('.new_book');
+    this.bookAuthorInput = document.querySelector('#book-author');
+    this.bookTitleInput = document.querySelector('#book-title');
+
+    this.loadSavedBooks();
+    this.bookForm.addEventListener('submit', this.handleFormSubmit.bind(this));
+  }
+
+  addBook(book) {
+    this.books.push(book);
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
+
+  removeBook(title) {
+    this.books = this.books.filter((book) => book.title !== title);
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
+
+  createBookCard(book) {
+    return `
+      <div class="book_card">
+        <p class="book_title">${book.title}</p>
+        <p class="book_author">${book.author}</p>
+        <button class="remove_button">Remove</button>
+        <hr>
+      </div>
+    `;
+  }
+
+  renderBook(book) {
+    const bookCard = this.createBookCard(book);
+    this.bookSection.insertAdjacentHTML('afterbegin', bookCard);
+    const removeBookButton = this.bookSection.querySelector('.remove_button');
+    if (removeBookButton) {
+      removeBookButton.addEventListener('click', (event) => {
+        const bookCard = event.target.parentElement;
+        if (bookCard) {
+          bookCard.remove();
+          this.removeBook(bookCard.querySelector('.book_title').innerText);
+        }
+      });
+    }
+  }
+
 }
 
-loadSavedBooks();
-
-bookForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const bookAuthor = bookAuthorInput.value;
-  const bookTitle = bookTitleInput.value;
-
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  books.push({ title: bookTitle, author: bookAuthor });
-
-  localStorage.setItem('books', JSON.stringify(books));
-
-  createBook(bookTitle, bookAuthor);
-
-  bookForm.reset();
-});
+const bookList = new BookList();
