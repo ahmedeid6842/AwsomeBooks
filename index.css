@@ -1,4 +1,3 @@
-
 :root {
   --title: 'COCOGOOSE', sans-serif;
   --text: montserrat, sans-serif;
@@ -137,7 +136,7 @@ form.new_book button {
   background-color: #36b37f;
 }
 
-header,
+.nav-container,
 footer {
   display: flex;
   width: 90vw;
@@ -147,6 +146,15 @@ footer {
   align-items: center;
   margin: 2rem auto;
   padding: 0 2rem;
+}
+
+.date-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 90vw;
+  height: 5vh;
+  margin: 0 auto;
 }
 
 .nav-list {
