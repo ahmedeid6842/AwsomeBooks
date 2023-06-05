@@ -1,9 +1,13 @@
 import BookList from './modules/bookList.js';
 import DisplaySections from './modules/displaySections.js';
-import time from './modules/navTime.js';
+import timeManagement from './modules/navTime.js';
 
+// create instance from BookList class which resposible for addition and removal of books
 const newBook = new BookList();
 newBook.loadSavedBooks();
 
+// call display section function to manage section display and hidden
 DisplaySections();
-time();
+
+// call timeManagement function to manage time at the nav bar
+timeManagement();
