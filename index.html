@@ -9,18 +9,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/cocogoose" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./index.css">
     <title>Awesome Books</title>
 </head>
 
 <body>
     <header>
-        <h2>Awesome Books 📘✍️</h2>
-        <nav class="nav-list">
-            <li class="nav-item list">List</li>
-            <li class="nav-item add-new">Add New</li>
-            <li class="nav-item contact">Contact</li>
-        </nav>
+        <div class="nav-container">
+            <h2>Awesome Books 📘✍️</h2>
+            <nav class="nav-list">
+                <li class="nav-item list">List</li>
+                <li class="nav-item add-new">Add New</li>
+                <li class="nav-item contact">Contact</li>
+            </nav>
+        </div>
+        <div class="date-container">
+            <p id="currentTimeDate"></p>
+        </div>
     </header>
     <main>
         <section class="book-list">
@@ -57,7 +62,6 @@
         <h3>CopyRigth ©2023 Ruth Abreu, Ahmed Eid</h3>
     </footer>
 </body>
-<script src="./js/bookList.js"></script>
-<script src="./js/displaySections.js"></script>
+<script type="module" src="./index.js"></script>
 
 </html>

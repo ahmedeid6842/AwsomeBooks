@@ -60,6 +60,7 @@
 - Adding & Remove Books Dynimcally
 - Book Data are stored in the local storage
 - load saved books in local storage when re-open the website
+- Added Live Date and Time at the nav bar
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->

@@ -1,4 +1,4 @@
-class BookList {
+export default class BookList {
   constructor() {
     this.books = JSON.parse(localStorage.getItem('books')) || [];
     this.bookSection = document.querySelector('.books');
@@ -61,6 +61,3 @@ class BookList {
     this.bookForm.reset();
   }
 }
-
-const newBook = new BookList();
-newBook.loadSavedBooks();
